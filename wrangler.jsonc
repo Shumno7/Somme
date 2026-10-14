@@ -1,8 +1,12 @@
 {
   "name": "still-meadow-2f97",
   "compatibility_date": "2026-10-01",
+  // Cloudflare unzips the two site archives into ./site before every deploy
+  "build": {
+    "command": "rm -rf site && python3 -m zipfile -e green-fields-site-part1.zip site && python3 -m zipfile -e green-fields-site-part2-video.zip site"
+  },
   "assets": {
-    "directory": "./",
+    "directory": "./site",
     "not_found_handling": "404-page"
   }
 }
